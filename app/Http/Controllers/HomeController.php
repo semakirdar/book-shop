@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $books = Book::query()->with('category')->get();
+        return view('home', [
+            'books' => $books
+            ]);
     }
 }
