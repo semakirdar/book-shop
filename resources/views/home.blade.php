@@ -2,6 +2,11 @@
 @section('content')
 
     <div class="container">
+        <form method="post" action="{{ route('book.store') }}">
+            @csrf
+            <button class="btn btn-primary mt-3">Create Book</button>
+        </form>
+
         <div class="row mt-5">
             @foreach($books as $book)
                 <div class="col-sm-12 col-md-12 col-lg-3 mb-4">

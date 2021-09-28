@@ -12,6 +12,6 @@ class HomeController extends Controller
         $books = Book::query()->with('category')->get();
         return view('home', [
             'books' => $books
-            ]);
+        ]);
     }
 }
