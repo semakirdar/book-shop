@@ -22,3 +22,15 @@ nav {
     }
 
 }
+
+.input-material{
+    position: relative;
+
+    label{
+        position: absolute;
+        top: -12px;
+        left: 12px;
+        background: $body-bg;
+
+    }
+}

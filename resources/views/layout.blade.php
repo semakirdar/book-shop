@@ -56,8 +56,17 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <a href="#" class="text-dark me-4 fs-2"><i class="fas fa-user"></i></a>
+                <form class="d-flex justify-content-center align-items-center">
+                    @auth()
+                        <a href="" class="text-decoration-none me-4">
+                            <i class="fas fa-sign-out-alt fs-4"> Merhaba {{ auth()->user()->name }}</i>
+                        </a>
+
+                    @endauth
+                    @guest()
+                        <a href="{{route('login')}}" class="text-dark me-4 fs-2"><i class="fas fa-user"></i></a>
+                    @endguest
+
                     <a href="#" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>
                 </form>
             </div>
