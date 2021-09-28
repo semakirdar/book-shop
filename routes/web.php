@@ -26,4 +26,5 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
 Route::post('/logout', [LogoutContorller::class, 'logout'])->name('logout');
 Route::get('/book/create', [BookController::class, 'create'])->name('book.create');
+Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
 
