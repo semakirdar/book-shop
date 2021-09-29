@@ -18,13 +18,11 @@
                         </div>
                         <div class="mb-3">
                             <label>Publisher</label>
-
                             <select class="form-control" name="publisher_id">
                                 @foreach($publishers as $publisher)
                                 <option id="{{ $category->id }}">{{ $publisher->name }}</option>
                                 @endforeach
                             </select>
-
                         </div>
                         <div class="mb-3">
                             <label>Name</label>
@@ -43,6 +41,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

@@ -27,7 +27,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand me-5" href="#">
+            <a class="navbar-brand me-5" href="{{ route('home') }}">
                 <img style="width: 70px; height: 70px;" src="{{ asset('images/book-shop-logo.jpeg') }}">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -41,20 +41,7 @@
                         <input style="margin-right: 300px" class="form-control" type="search" placeholder="Search"
                                aria-label="Search">
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+
                 </ul>
                 <div class="d-flex justify-content-center align-items-center">
                     @auth()
@@ -77,38 +64,17 @@
     </nav>
     <div class="nav-highlights">
         <ul class="nav justify-content-between">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Novel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Philosophy</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Comic Book</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Science</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">History</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"> literature</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Children Books</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Self Improvement</a>
-            </li>
-
+            @foreach($parentCategories as $category)
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('category.detail', ['id' => $category->id])}}">{{$category->name}}</a>
+                </li>
+            @endforeach
             <li class="nav-item">
                 <a class="nav-link text-primary" href="#">Best Sellers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="#">New Releases</a>
+                <a class="nav-link text-primary" href="{{route('new.release')}}">New Releases</a>
             </li>
-
 
         </ul>
     </div>

@@ -14,9 +14,12 @@
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <strong>{{ $book->name }}</strong>
-                                    <p class="bg-primary text-center  p-1 rounded-1 mt-3">
-                                        <a class="text-white text-decoration-none" href="#">{{ $book->category->name }}</a>
-                                    </p>
+
+                                        <a class="text-white text-decoration-none" href="{{ route('books', ['categoryId' => $book->category->id]) }}">
+                                            <p class="bg-primary text-center  p-1 rounded-1 mt-3">{{ $book->category->name }}
+                                            </p>
+                                        </a>
+
                                     <p>{{$book->page_count}}</p>
                                 </div>
                             </div>

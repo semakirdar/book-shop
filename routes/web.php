@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutContorller;
@@ -25,6 +26,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
 Route::post('/logout', [LogoutContorller::class, 'logout'])->name('logout');
+
 Route::get('/book/create', [BookController::class, 'create'])->name('book.create');
 Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
+Route::get('/new/releases', [BookController::class, 'newReleases'])->name('new.release');
+Route::get('/books/{categoryId}', [BookController::class, 'index'])->name('books');
+
+Route::get('/category/detail/{id}',[CategoryController::class, 'detail'])->name('category.detail');
+
+
 
