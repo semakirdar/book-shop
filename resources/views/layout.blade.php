@@ -48,9 +48,12 @@
                         <form method="post" action="{{ route('logout') }}">
                             @method('POST')
                             @csrf
-                            <button class="me-4 border-0 bg-white">
-                                <i class="fas fa-sign-out-alt fs-4"> Merhaba {{ auth()->user()->name }}</i>
+                            <button class="me-1 border-0 bg-white">
+                                <i class="fas fa-sign-out-alt fs-4"></i>
                             </button>
+                           <span class="me-4">
+                                Merhaba {{ auth()->user()->name }}
+                           </span>
                         </form>
                     @endauth
                     @guest()

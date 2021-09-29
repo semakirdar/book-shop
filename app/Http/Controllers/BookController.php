@@ -49,5 +49,14 @@ class BookController extends Controller
             'books' => $books,
             'category' => $category
         ]);
+
+    }
+
+    public function detail($bookId)
+    {
+        $book = Book::query()->where('id', $bookId)->first();
+        return view('bookDetail', [
+            'book' => $book
+        ]);
     }
 }

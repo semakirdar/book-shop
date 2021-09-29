@@ -31,8 +31,9 @@ Route::get('/book/create', [BookController::class, 'create'])->name('book.create
 Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
 Route::get('/new/releases', [BookController::class, 'newReleases'])->name('new.release');
 Route::get('/books/{categoryId}', [BookController::class, 'index'])->name('books');
+Route::get('/book/detail/{bookId}', [BookController::class, 'detail'])->name('book.detail');
 
-Route::get('/category/detail/{id}',[CategoryController::class, 'detail'])->name('category.detail');
+Route::get('/category/detail/{id}', [CategoryController::class, 'detail'])->name('category.detail');
 
 
 
