@@ -9,12 +9,22 @@
                     <form method="post" action="{{route('book.store')}}">
                         @csrf
                         <div class="mb-3">
-                            <label>Category ID</label>
-                            <input class="form-control" name="category_id">
+                            <label>Category</label>
+                            <select class="form-control" name="category_id">
+                                @foreach($categories as $category)
+                                    <option id="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3">
-                            <label>Publisher ID</label>
-                            <input class="form-control" name="publisher_id">
+                            <label>Publisher</label>
+
+                            <select class="form-control" name="publisher_id">
+                                @foreach($publishers as $publisher)
+                                <option id="{{ $category->id }}">{{ $publisher->name }}</option>
+                                @endforeach
+                            </select>
+
                         </div>
                         <div class="mb-3">
                             <label>Name</label>

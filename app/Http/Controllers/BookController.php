@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     public function create()
     {
-        return view('bookCreate');
+        $categories = Category::query()->whereNotNull('parent_id')->get();
+        $publishers = Publisher::query()->get();
+        return view('bookCreate', [
+            'categories' => $categories,
+            'publishers' => $publishers
+        ]);
     }
 
     public function store(Request $request)
