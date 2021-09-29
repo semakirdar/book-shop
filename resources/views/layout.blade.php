@@ -51,7 +51,7 @@
                             <button class="me-1 border-0 bg-white">
                                 <i class="fas fa-sign-out-alt fs-4"></i>
                             </button>
-                           <span class="me-4">
+                            <span class="me-4">
                                 Merhaba {{ auth()->user()->name }}
                            </span>
                         </form>
@@ -69,7 +69,8 @@
         <ul class="nav justify-content-between">
             @foreach($parentCategories as $category)
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('category.detail', ['id' => $category->id])}}">{{$category->name}}</a>
+                    <a class="nav-link active" aria-current="page"
+                       href="{{route('category.detail', ['id' => $category->id])}}">{{$category->name}}</a>
                 </li>
             @endforeach
             <li class="nav-item">
@@ -88,6 +89,11 @@
 
 <footer>
 </footer>
+<script src="{{ asset('js/app.js') }}"></script>
+
+@if ($errors->any())
+    <script>toastr.error('{{ implode(" ", $errors->all()) }}')</script>
+@endif
 
 </body>
 </html>

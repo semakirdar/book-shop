@@ -15,10 +15,17 @@ class Book extends Model
         'publisher_id',
         'name',
         'page_count',
-        'publish_date'
+        'publish_date',
+        'description'
     ];
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class);
     }
 }

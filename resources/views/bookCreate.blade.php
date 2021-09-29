@@ -33,6 +33,10 @@
                             <input class="form-control" name="page_count">
                         </div>
                         <div class="mb-3">
+                            <label>Description</label>
+                            <input class="form-control" name="description">
+                        </div>
+                        <div class="mb-3">
                             <label>Publish Date</label>
                             <input class="form-control" name="publish_date">
                         </div>

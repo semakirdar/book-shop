@@ -12,13 +12,19 @@
                             <div class="card p-4 mb-4">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-3">
+                                        <a href="{{route('book.detail', ['bookId' => $book->id])}}">
                                         <img style="width: 150px; height: 150px;" class="img-fluid"
                                              src="{{ asset('images/book.png') }}">
+                                        </a>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-6">
-                                        <strong>{{ $book->name }}</strong>
+                                        <a class="text-decoration-none" href="{{route('book.detail', ['bookId' => $book->id])}}">
+                                            <strong>{{ $book->name }}</strong>
+                                        </a>
 
-                                        <a class="text-white text-decoration-none" href="{{ route('books', ['categoryId' => $book->category->id]) }}">
+
+                                        <a class="text-white text-decoration-none"
+                                           href="{{ route('books', ['categoryId' => $book->category->id]) }}">
                                             <p class="bg-primary text-center  p-1 rounded-1 mt-3">
                                                 {{ $book->category->name }}
                                             </p>
