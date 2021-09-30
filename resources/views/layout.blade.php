@@ -58,6 +58,7 @@
                     @endauth
                     @guest()
                         <a href="{{route('login')}}" class="text-dark me-4 fs-2"><i class="fas fa-user"></i></a>
+                        <a href="{{ route('register') }}" class="text-dark me-4 fs-2"><i class="fas fa-user-plus"></i></a>
                     @endguest
 
                     <a href="#" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>

@@ -25,7 +25,7 @@
                                     </a>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="#" class="text-decoration-none ">
+                                    <a href="#comment" class="text-decoration-none ">
                                         <i class="fas fa-comment text-muted me-2"></i>
                                         Yorumlar
                                     </a>
@@ -52,10 +52,10 @@
                 </div>
             </div>
         </div>
-        <div class="comments">
-            <div class="row justify-content-center align-items-center mt-5 mb-4">
+        <div class="comments" id="comment">
+            <div class="row justify-content-center align-items-center mt-5 ">
                 <div class="col-sm-12 col-md-12 col-lg-8">
-                    <div class="card">
+                    <div class="card mb-4">
                         <div class="card-header">
                             Comment add
                         </div>
