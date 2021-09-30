@@ -8,7 +8,11 @@
                 <div class="card p-3 shadow-lg">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-4">
-                            <img class="img-fluid" src="{{ asset('images/book.png') }}">
+                            @if(!empty($book->getFirstMediaUrl()))
+                                <img class="img-fluid" src="{{$book->getFirstMediaUrl()}}">
+                            @else
+                                <img class="img-fluid" src="{{ asset('images/book.png') }}">
+                            @endif
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-8 border-bottom">
                             <p><strong>{{ $book->name }}</strong></p>

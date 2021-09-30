@@ -11,11 +11,16 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-5">
                                 <a href="{{ route('book.detail', ['bookId' => $book->id]) }}">
-                                    <img class="img-fluid" src="{{ asset('images/book.png') }}">
+                                    @if(!empty($book->getFirstMediaUrl()))
+                                        <img class="img-fluid" src="{{$book->getFirstMediaUrl()}}">
+                                    @else
+                                        <img class="img-fluid" src="{{ asset('images/book.png') }}">
+                                    @endif
                                 </a>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
-                                <a href="{{ route('book.detail', ['bookId' => $book->id]) }}" class="text-decoration-none text-dark">
+                                <a href="{{ route('book.detail', ['bookId' => $book->id]) }}"
+                                   class="text-decoration-none text-dark">
                                     <strong>{{ $book->name }}</strong>
                                 </a>
                                 <a class="text-white text-decoration-none"

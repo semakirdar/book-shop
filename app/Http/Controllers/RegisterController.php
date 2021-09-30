@@ -20,7 +20,6 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make('password')
-
         ]);
         return redirect()->route('login');
     }

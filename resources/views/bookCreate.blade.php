@@ -6,13 +6,13 @@
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="mb-4">Book Create</h3>
                 <div class="book-create">
-                    <form method="post" action="{{route('book.store')}}">
+                    <form method="post" action="{{route('book.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label>Category</label>
                             <select class="form-control" name="category_id">
                                 @foreach($categories as $category)
-                                    <option id="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -20,7 +20,7 @@
                             <label>Publisher</label>
                             <select class="form-control" name="publisher_id">
                                 @foreach($publishers as $publisher)
-                                <option id="{{ $category->id }}">{{ $publisher->name }}</option>
+                                    <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -39,6 +39,10 @@
                         <div class="mb-3">
                             <label>Publish Date</label>
                             <input class="form-control" name="publish_date">
+                        </div>
+                        <div class="mb-3">
+                            <label>Image</label>
+                            <input name="image" class="form-control" type="file">
                         </div>
                         <button class="form-control btn btn-success">CREATE</button>
                     </form>

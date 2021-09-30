@@ -16,6 +16,7 @@ class BookController extends Controller
     {
         $categories = Category::query()->whereNotNull('parent_id')->get();
         $publishers = Publisher::query()->get();
+
         return view('bookCreate', [
             'categories' => $categories,
             'publishers' => $publishers
@@ -32,6 +33,8 @@ class BookController extends Controller
             'publish_date' => $request->publish_date,
             'description' => $request->description
         ]);
+
+        $book->addMediaFromRequest('image')->toMediaCollection();
 
         return redirect()->route('home');
     }

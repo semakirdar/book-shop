@@ -13,8 +13,11 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-3">
                                         <a href="{{ route('book.detail', ['bookId' => $book->id]) }}">
-                                            <img style="width: 150px; height: 150px;" class="img-fluid"
-                                                 src="{{ asset('images/book.png') }}">
+                                            @if(!empty($book->getFirstMediaUrl()))
+                                                <img class="img-fluid" src="{{$book->getFirstMediaUrl()}}">
+                                            @else
+                                                <img class="img-fluid" src="{{ asset('images/book.png') }}">
+                                            @endif
                                         </a>
 
                                     </div>
