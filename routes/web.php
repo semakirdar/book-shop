@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutContorller;
@@ -32,6 +33,10 @@ Route::post('/book/store', [BookController::class, 'store'])->name('book.store')
 Route::get('/new/releases', [BookController::class, 'newReleases'])->name('new.release');
 Route::get('/books/{categoryId}', [BookController::class, 'index'])->name('books');
 Route::get('/book/detail/{bookId}', [BookController::class, 'detail'])->name('book.detail');
+
+
+Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
 Route::get('/category/detail/{id}', [CategoryController::class, 'detail'])->name('category.detail');
 

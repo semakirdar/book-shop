@@ -23,14 +23,32 @@ nav {
 
 }
 
-.input-material{
+.input-material {
     position: relative;
 
-    label{
+    label {
         position: absolute;
         top: -12px;
         left: 12px;
         background: $body-bg;
 
     }
+}
+
+.comments {
+    position: relative;
+
+    button {
+        position: absolute !important;
+        top: 72px;
+        right: 30px !important;
+    }
+
+    .select-star {
+        position: absolute;
+        top: 105px;
+        right: 21px;
+
+    }
+
 }

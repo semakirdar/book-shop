@@ -17679,3 +17679,17 @@ nav {
   left: 12px;
   background: #f0f3f6;
 }
+
+.comments {
+  position: relative;
+}
+.comments button {
+  position: absolute !important;
+  top: 72px;
+  right: 30px !important;
+}
+.comments .select-star {
+  position: absolute;
+  top: 105px;
+  right: 21px;
+}

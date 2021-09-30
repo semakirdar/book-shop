@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Books\StoreRequest;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
@@ -56,9 +57,11 @@ class BookController extends Controller
 
     public function detail($bookId)
     {
+        $comments = Comment::query()->with('user')->where('book_id', $bookId)->get();
         $book = Book::query()->with('publisher')->where('id', $bookId)->first();
         return view('bookDetail', [
-            'book' => $book
+            'book' => $book,
+            'comments' => $comments
         ]);
     }
 }
