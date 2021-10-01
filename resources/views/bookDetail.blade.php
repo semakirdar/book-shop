@@ -54,11 +54,16 @@
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-4 mt-3" style="font-size: 13px;">
                             <div>
-                                @if(!empty($author->author->name))
-                                    <p><strong>Author:</strong> {{ $author->author->name}}</p>
+
+                                @if(!empty($authors))
+                                    <p><strong>Author:</strong></p>
+                                    @foreach($authors as $item)
+                                        <p>{{ $item->author->name }}</p>
+                                    @endforeach
                                 @else
                                     <p><strong>Author:</strong> {{ ' - '}}</p>
                                 @endif
+
                             </div>
                         </div>
                     </div>
@@ -112,7 +117,8 @@
                                             <p class="mt-2">{{ $comment->body }}</p>
                                         </div>
                                         <div>
-                                            <p style="width: 143px;" class="position-absolute bottom-0 end-0 text-muted me-3">{{ $comment->created_at }}</p>
+                                            <p style="width: 143px;"
+                                               class="position-absolute bottom-0 end-0 text-muted me-3">{{ $comment->created_at }}</p>
                                         </div>
                                     </div>
                                 </div>

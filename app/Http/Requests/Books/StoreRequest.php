@@ -30,7 +30,8 @@ class StoreRequest extends FormRequest
             'page_count' => 'required',
             'description' => 'required',
             'publish_date' => 'required',
-            'author' => 'required'
+            'author' => 'required',
+            'image' => 'required'
 
         ];
     }

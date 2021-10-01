@@ -27,13 +27,6 @@ class BookController extends Controller
 
     public function store(StoreRequest $request)
     {
-        if (Author::query()->where('name', $request->author)) {
-            $author = Author::query()->create([
-                'name' => $request->author,
-                'description' => ' '
-            ]);
-        }
-
         $book = Book::query()->create([
             'category_id' => $request->category_id,
             'publisher_id' => $request->publisher_id,
@@ -43,11 +36,23 @@ class BookController extends Controller
             'description' => $request->description,
         ]);
 
+        $authors = explode(',', $request->author);
 
-        $book_author = BookAuthor::query()->create([
-            'book_id' => $book->id,
-            'author_id' => $author->id
-        ]);
+        foreach ($authors as $item){
+            $author = Author::query()->where('name', $item)->first();
+            if (!$author) {
+                $author = Author::query()->create([
+                    'name' => $item,
+                    'description' => ' '
+                ]);
+            }
+
+            $book_author = BookAuthor::query()->create([
+                'book_id' => $book->id,
+                'author_id' => $author->id
+            ]);
+        }
+
 
         $book->addMediaFromRequest('image')->toMediaCollection();
 
@@ -67,9 +72,11 @@ class BookController extends Controller
     {
         $category = Category::query()->where('id', $categoryId)->first();
         $books = Book::query()->where('category_id', $categoryId)->get();
+
         return view('book', [
             'books' => $books,
-            'category' => $category
+            'category' => $category,
+
         ]);
     }
 
@@ -77,11 +84,11 @@ class BookController extends Controller
     {
         $comments = Comment::query()->with('user')->where('book_id', $bookId)->get();
         $book = Book::query()->with('publisher')->where('id', $bookId)->first();
-        $bookAuthor = BookAuthor::query()->where('book_id', $bookId)->first();
+        $bookAuthor = BookAuthor::query()->where('book_id', $bookId)->get();
         return view('bookDetail', [
             'book' => $book,
             'comments' => $comments,
-            'author' => $bookAuthor
+            'authors' => $bookAuthor
         ]);
     }
 }
