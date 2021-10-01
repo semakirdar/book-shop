@@ -73,7 +73,7 @@
                             Comment add
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{route('comment.store')}}">
+                            <form method="post" action="{{route('comment.store')}}" style="padding-right: 86px;">
                                 @csrf
                                 <textarea rows="5" name="body" class="form-control "></textarea>
                                 <input type="hidden" name="book_id" value="{{$book->id}}">

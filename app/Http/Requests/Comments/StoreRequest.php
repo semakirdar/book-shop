@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Books;
+namespace App\Http\Requests\Comments;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,14 +24,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'category_id' => 'required',
-            'publisher_id' => 'required',
-            'page_count' => 'required',
-            'description' => 'required',
-            'publish_date' => 'required',
-            'author' => 'required'
-
+            'body' => 'required',
+            'rating' => 'required'
         ];
     }
 }
