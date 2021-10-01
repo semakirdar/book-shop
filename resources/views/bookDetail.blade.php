@@ -52,6 +52,15 @@
                                 <p><strong>Publisher Description:</strong> {{$book->publisher->description}}</p>
                             </div>
                         </div>
+                        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-4 mt-3" style="font-size: 13px;">
+                            <div>
+                                @if(!empty($author->author->name))
+                                    <p><strong>Author:</strong> {{ $author->author->name}}</p>
+                                @else
+                                    <p><strong>Author:</strong> {{ ' - '}}</p>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-
                 @foreach($comments as $comment)
                     <div class="row justify-content-center align-items-center mt-1 mb-1">
                         <div class="col-sm-12 col-md-12 col-lg-8">
@@ -94,21 +102,24 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
                                             <strong>{{ $comment->user->name}}</strong>
-
                                         </div>
                                         <div>
                                             <h1>***</h1>
                                         </div>
-
                                     </div>
-                                    <p class="mt-2">{{ $comment->body }}</p>
-
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mt-2">{{ $comment->body }}</p>
+                                        </div>
+                                        <div>
+                                            <p style="width: 143px;" class="position-absolute bottom-0 end-0 text-muted me-3">{{ $comment->created_at }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </div>

@@ -25,6 +25,10 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <label>Author</label>
+                            <input class="form-control" name="author">
+                        </div>
+                        <div class="mb-3">
                             <label>Name</label>
                             <input class="form-control" name="name">
                         </div>

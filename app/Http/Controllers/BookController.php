@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Books\StoreRequest;
+use App\Models\author;
 use App\Models\Book;
+use App\Models\BookAuthor;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
+
 
 class BookController extends Controller
 {
@@ -16,22 +19,34 @@ class BookController extends Controller
     {
         $categories = Category::query()->whereNotNull('parent_id')->get();
         $publishers = Publisher::query()->get();
-
         return view('bookCreate', [
             'categories' => $categories,
-            'publishers' => $publishers
+            'publishers' => $publishers,
         ]);
     }
 
     public function store(StoreRequest $request)
     {
+        if (Author::query()->where('name', $request->author)) {
+            $author = Author::query()->create([
+                'name' => $request->author,
+                'description' => ' '
+            ]);
+        }
+
         $book = Book::query()->create([
             'category_id' => $request->category_id,
             'publisher_id' => $request->publisher_id,
             'name' => $request->name,
             'page_count' => $request->page_count,
             'publish_date' => $request->publish_date,
-            'description' => $request->description
+            'description' => $request->description,
+        ]);
+
+
+        $book_author = BookAuthor::query()->create([
+            'book_id' => $book->id,
+            'author_id' => $author->id
         ]);
 
         $book->addMediaFromRequest('image')->toMediaCollection();
@@ -62,9 +77,11 @@ class BookController extends Controller
     {
         $comments = Comment::query()->with('user')->where('book_id', $bookId)->get();
         $book = Book::query()->with('publisher')->where('id', $bookId)->first();
+        $bookAuthor = BookAuthor::query()->where('book_id', $bookId)->first();
         return view('bookDetail', [
             'book' => $book,
-            'comments' => $comments
+            'comments' => $comments,
+            'author' => $bookAuthor
         ]);
     }
 }

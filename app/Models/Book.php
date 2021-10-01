@@ -30,4 +30,8 @@ class Book extends Model implements HasMedia
     {
         return $this->belongsTo(Publisher::class);
     }
+
+    public function bookAuthor(){
+        return $this->hasMany(BookAuthor::class);
+    }
 }

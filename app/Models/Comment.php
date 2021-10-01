@@ -14,7 +14,8 @@ class Comment extends Model
         'user_id',
         'book_id',
         'rating',
-        'body'
+        'body',
+        'created_at'
     ];
 
     public function user(){
