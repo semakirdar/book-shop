@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutContorller;
@@ -45,4 +46,4 @@ Route::post('/register/store', [RegisterController::class, 'store'])->name('regi
 Route::get('/category/detail/{id}', [CategoryController::class, 'detail'])->name('category.detail');
 
 
-
+Route::post('/book/favorite/{id}', [FavoriteController::class, 'favorite'])->name('book.favorite');

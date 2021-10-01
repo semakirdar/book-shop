@@ -72,33 +72,36 @@
         </div>
         <div class="comments" id="comment">
             <div class="row justify-content-center align-items-center mt-5 ">
-                <div class="col-sm-12 col-md-12 col-lg-8">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            Comment add
-                        </div>
-                        <div class="card-body">
-                            <form method="post" action="{{route('comment.store')}}" style="padding-right: 86px;">
-                                @csrf
-                                <textarea rows="5" name="body" class="form-control "></textarea>
-                                <input type="hidden" name="book_id" value="{{$book->id}}">
-                                <select class="select-star mt-4" name="rating">
-                                    <option>Rating</option>
-                                    @for($i = 1;  $i < 6; $i++)
-                                        <option value="{{ $i }}">
-                                            @for($j = 1; $j <= $i; $j++)
-                                                *
-                                            @endfor
-                                        </option>
-                                    @endfor
-                                </select>
-                                <button class="btn btn-none">
-                                    <i class="fas fa-location-arrow fs-4"></i>
-                                </button>
-                            </form>
+                @auth()
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                Comment add
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="{{route('comment.store')}}" style="padding-right: 86px;">
+                                    @csrf
+                                    <textarea rows="5" name="body" class="form-control "></textarea>
+                                    <input type="hidden" name="book_id" value="{{$book->id}}">
+                                    <select class="select-star mt-4" name="rating">
+                                        <option>Rating</option>
+                                        @for($i = 1;  $i < 6; $i++)
+                                            <option value="{{ $i }}">
+                                                @for($j = 1; $j <= $i; $j++)
+                                                    *
+                                                @endfor
+                                            </option>
+                                        @endfor
+                                    </select>
+                                    <button class="btn btn-none">
+                                        <i class="fas fa-location-arrow fs-4"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                @endauth
                 @foreach($comments as $comment)
                     <div class="row justify-content-center align-items-center mt-1 mb-1">
                         <div class="col-sm-12 col-md-12 col-lg-8">
@@ -115,21 +118,18 @@
                                             @endif
                                             <strong>{{ $comment->user->name}}</strong>
                                         </div>
-                                        <div>
-                                            <h1>
-                                                @for($j =1; $j <= $comment->rating; $j++)
-                                                    *
-                                                @endfor
-                                            </h1>
+                                        <div class="fs-5">
+                                            @for($j =1; $j <= $comment->rating; $j++)
+                                                <i class="fas fa-star star-icon"></i>
+                                            @endfor
                                         </div>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center p-4">
                                         <div>
                                             <p class="mt-2">{{ $comment->body }}</p>
                                         </div>
                                         <div>
-                                            <p style="width: 143px;"
-                                               class="position-absolute bottom-0 end-0 text-muted me-3">{{ $comment->created_at }}</p>
+                                            <p class="position-absolute bottom-0 end-0 text-muted me-3">{{ $comment->created_at }}</p>
                                         </div>
                                     </div>
                                 </div>
