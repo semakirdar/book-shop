@@ -19,8 +19,10 @@ class RegisterController extends Controller
         $user = User::query()->create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make('password')
+            'password' => Hash::make($request->password)
         ]);
+
+        $user->addMediaFromRequest('image')->toMediaCollection();
         return redirect()->route('login');
     }
 }

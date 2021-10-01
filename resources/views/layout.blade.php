@@ -52,7 +52,9 @@
                                 <i class="fas fa-sign-out-alt fs-4"></i>
                             </button>
                             <span class="me-4">
-                                Merhaba {{ auth()->user()->name }}
+                                <img style="width: 70px; height: 70px;" class="rounded-circle" src="{{auth()->user()->getFirstMediaUrl()}}">
+
+                                {{ auth()->user()->name }}
                            </span>
                         </form>
                     @endauth

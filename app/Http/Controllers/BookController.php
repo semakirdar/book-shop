@@ -38,7 +38,7 @@ class BookController extends Controller
 
         $authors = explode(',', $request->author);
 
-        foreach ($authors as $item){
+        foreach ($authors as $item) {
             $author = Author::query()->where('name', $item)->first();
             if (!$author) {
                 $author = Author::query()->create([
@@ -52,16 +52,12 @@ class BookController extends Controller
                 'author_id' => $author->id
             ]);
         }
-
-
         $book->addMediaFromRequest('image')->toMediaCollection();
-
         return redirect()->route('home');
     }
 
     public function newReleases()
     {
-
         $books = Book::query()->orderBy('id', 'DESC')->limit(5)->get();
         return view('newReleases', [
             'books' => $books
