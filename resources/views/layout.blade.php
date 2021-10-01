@@ -48,7 +48,7 @@
                         <form method="post" action="{{ route('logout') }}">
                             @method('POST')
                             @csrf
-                            <button class="me-1 border-0 bg-white">
+                            <button class="me-1 border-0">
                                 <i class="fas fa-sign-out-alt fs-4"></i>
                             </button>
                             <span class="me-4">

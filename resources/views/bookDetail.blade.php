@@ -106,10 +106,21 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
+                                            @if($comment->user->getFirstMediaUrl())
+                                                <img class="rounded-circle" style="height: 30px; height: 30px;"
+                                                     src="{{ $comment->user->getFirstMediaUrl()}}">
+                                            @else
+                                                <img class="rounded-circle" style="height: 30px; height: 30px;"
+                                                     src="{{ asset('/images/default-img.png') }}">
+                                            @endif
                                             <strong>{{ $comment->user->name}}</strong>
                                         </div>
                                         <div>
-                                            <h1>***</h1>
+                                            <h1>
+                                                @for($j =1; $j <= $comment->rating; $j++)
+                                                    *
+                                                @endfor
+                                            </h1>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
