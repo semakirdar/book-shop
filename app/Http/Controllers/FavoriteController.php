@@ -16,7 +16,9 @@ class FavoriteController extends Controller
 
     public function favorite($id)
     {
-        $favoriteBook = Favorite::query()->where('book_id', $id)->first();
+        $favoriteBook = Favorite::query()
+            ->where('user_id', auth()->user()->id)
+            ->where('book_id', $id)->first();
 
         if ($favoriteBook) {
             $favoriteBook->delete();
