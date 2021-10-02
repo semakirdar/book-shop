@@ -29,8 +29,7 @@
                                     <p class="bg-primary text-center  p-1 rounded-1 mt-3">{{ $book->category->name }}
                                     </p>
                                 </a>
-
-                                <p>{{$book->page_count}}</p>
+                                <p><strong>Page Count:</strong> {{ $book->page_count }}</p>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ class BookController extends Controller
         $categories = Category::query()->whereNotNull('parent_id')->get();
         $publishers = Publisher::query()->get();
         $favorite = Favorite::query()->get();
-        return view('bookCreate', [
+        return view('books.bookCreate', [
             'categories' => $categories,
             'publishers' => $publishers,
             'favorite' => $favorite
@@ -72,7 +72,7 @@ class BookController extends Controller
         $category = Category::query()->where('id', $categoryId)->first();
         $books = Book::query()->where('category_id', $categoryId)->get();
 
-        return view('book', [
+        return view('books.book', [
             'books' => $books,
             'category' => $category,
 
@@ -85,11 +85,26 @@ class BookController extends Controller
         $book = Book::query()->with('publisher')->where('id', $bookId)->first();
         $bookAuthor = BookAuthor::query()->where('book_id', $bookId)->get();
         $favoriteCount = Favorite::query()->where('book_id', $bookId)->count();
-        return view('bookDetail', [
+        return view('books.bookDetail', [
             'book' => $book,
             'comments' => $comments,
             'authors' => $bookAuthor,
             'favoriteCount' => $favoriteCount
         ]);
+    }
+
+
+    public function favoriteBook()
+    {
+        $favorites = Favorite::query()
+            ->with('book')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+
+
+        return view('favoriteBook', [
+            'favorites' => $favorites
+        ]);
+
     }
 }

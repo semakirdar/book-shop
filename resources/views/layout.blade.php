@@ -76,6 +76,9 @@
                        href="{{route('category.detail', ['id' => $category->id])}}">{{$category->name}}</a>
                 </li>
             @endforeach
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{ route('favorite.book.user') }}">Favorite Books</a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link text-primary" href="#">Best Sellers</a>
             </li>
