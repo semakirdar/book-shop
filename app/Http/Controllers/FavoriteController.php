@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
+    public function index()
+    {
+
+    }
+
+
     public function favorite($id)
     {
         $favoriteBook = Favorite::query()->where('book_id', $id)->first();

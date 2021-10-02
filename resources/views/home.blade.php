@@ -7,16 +7,7 @@
             @foreach($books as $book)
 
                 <div class="col-sm-12 col-md-12 col-lg-3 mb-4">
-                    <div class="card book-card p-3 shadow-lg" style="height: 200px">
-
-                        <div class="fav-icon">
-                            <form method="post" action="{{route('book.favorite', ['id' => $book->id ])}}">
-                                @csrf
-                                <button class="btn btn-none">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </form>
-                        </div>
+                    <div class="card p-3 shadow-lg" style="height: 200px">
 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-5">

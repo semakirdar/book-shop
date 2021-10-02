@@ -21,6 +21,10 @@ class Book extends Model implements HasMedia
         'description'
     ];
 
+   protected $appends = [
+       'is_favorited'
+   ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -33,5 +37,13 @@ class Book extends Model implements HasMedia
 
     public function bookAuthor(){
         return $this->hasMany(BookAuthor::class);
+    }
+
+    public function getIsFavoritedAttribute()
+    {
+        return Favorite::query()
+            ->where('book_id', $this->id)
+            ->where('user_id', auth()->user()->id)
+            ->exists();
     }
 }

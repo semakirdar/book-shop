@@ -8,6 +8,7 @@ use App\Models\Book;
 use App\Models\BookAuthor;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Favorite;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
@@ -19,9 +20,11 @@ class BookController extends Controller
     {
         $categories = Category::query()->whereNotNull('parent_id')->get();
         $publishers = Publisher::query()->get();
+        $favorite = Favorite::query()->get();
         return view('bookCreate', [
             'categories' => $categories,
             'publishers' => $publishers,
+            'favorite' => $favorite
         ]);
     }
 
@@ -81,10 +84,12 @@ class BookController extends Controller
         $comments = Comment::query()->with('user')->where('book_id', $bookId)->get();
         $book = Book::query()->with('publisher')->where('id', $bookId)->first();
         $bookAuthor = BookAuthor::query()->where('book_id', $bookId)->get();
+        $favoriteCount = Favorite::query()->where('book_id', $bookId)->count();
         return view('bookDetail', [
             'book' => $book,
             'comments' => $comments,
-            'authors' => $bookAuthor
+            'authors' => $bookAuthor,
+            'favoriteCount' => $favoriteCount
         ]);
     }
 }
