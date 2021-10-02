@@ -47,4 +47,5 @@ Route::get('/category/detail/{id}', [CategoryController::class, 'detail'])->name
 
 
 Route::post('/book/favorite/{id}', [FavoriteController::class, 'favorite'])->name('book.favorite');
-Route::get('/favorite/book/user', [BookController::class, 'favoriteBook'])->name('favorite.book.user');
+Route::get('/favorite/book/user', [FavoriteController::class, 'favoriteBook'])->name('favorite.book.user');
+Route::post('/favorite/book/delete/{bookId}', [FavoriteController::class, 'deleteFavorite'])->name('favorite.book.delete');

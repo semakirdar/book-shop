@@ -17708,3 +17708,15 @@ nav {
 .book-card .fav-icon i {
   font-size: 30px;
 }
+
+.favorite-card-book {
+  position: relative;
+}
+.favorite-card-book .delete-favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.favorite-card-book .delete-favorite i {
+  color: #e54747;
+}

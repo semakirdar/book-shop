@@ -9,16 +9,14 @@
                     </div>
                     <div class="card-body">
                         @if(count($categories)>0)
-                        @foreach($categories as $category)
-
+                            @foreach($categories as $category)
                                 <a href="{{ route('books', ['categoryId' => $category->id]) }}"
                                    class="text-decoration-none text-white">
                                     <p class="bg-primary text-center  p-1 rounded-1 mt-3">  {{$category->name }} </p>
                                 </a>
-
-                        @endforeach
+                            @endforeach
                         @else
-                           <h5 class="text-danger">Not Found !</h5>
+                            <h5 class="text-danger">Not Found !</h5>
                         @endif
                     </div>
                 </div>

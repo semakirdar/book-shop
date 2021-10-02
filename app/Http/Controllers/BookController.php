@@ -94,17 +94,5 @@ class BookController extends Controller
     }
 
 
-    public function favoriteBook()
-    {
-        $favorites = Favorite::query()
-            ->with('book')
-            ->where('user_id', auth()->user()->id)
-            ->get();
 
-
-        return view('favoriteBook', [
-            'favorites' => $favorites
-        ]);
-
-    }
 }

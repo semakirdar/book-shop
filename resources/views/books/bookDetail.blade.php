@@ -116,7 +116,7 @@
 
                 @endauth
                 @foreach($comments as $comment)
-                    <div class="row justify-content-center align-items-center mt-1 mb-1">
+                    <div class="row justify-content-center align-items-center mt-1 mb-1 mb-5">
                         <div class="col-sm-12 col-md-12 col-lg-8">
                             <div class="card p-3">
                                 <div class="card-body">

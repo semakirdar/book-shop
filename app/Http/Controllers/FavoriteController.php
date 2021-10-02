@@ -13,7 +13,6 @@ class FavoriteController extends Controller
 
     }
 
-
     public function favorite($id)
     {
         $favoriteBook = Favorite::query()
@@ -30,6 +29,33 @@ class FavoriteController extends Controller
             ]);
         }
 
+        return redirect()->back();
+    }
+
+    public function favoriteBook()
+    {
+        $totalFavorite = Favorite::query()
+            ->where('user_id', auth()->user()->id)
+            ->count();
+        $favorites = Favorite::query()
+            ->with('book')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+
+
+        return view('favoriteBook', [
+            'favorites' => $favorites,
+            'totalFavorite' => $totalFavorite
+        ]);
+    }
+
+    public function deleteFavorite($bookId)
+    {
+        $favorite = Favorite::query()
+            ->where('user_id', auth()->user()->id)
+            ->where('book_id', $bookId)
+            ->first();
+        $favorite->delete();
         return redirect()->back();
     }
 }
