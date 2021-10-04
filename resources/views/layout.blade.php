@@ -52,7 +52,8 @@
                                 <i class="fas fa-sign-out-alt fs-4"></i>
                             </button>
                             <span class="me-4">
-                                <img style="width: 70px; height: 70px;" class="rounded-circle" src="{{auth()->user()->getFirstMediaUrl()}}">
+                                <img style="width: 70px; height: 70px;" class="rounded-circle"
+                                     src="{{auth()->user()->getFirstMediaUrl()}}">
 
                                 {{ auth()->user()->name }}
                            </span>
@@ -60,10 +61,20 @@
                     @endauth
                     @guest()
                         <a href="{{route('login')}}" class="text-dark me-4 fs-2"><i class="fas fa-user"></i></a>
-                        <a href="{{ route('register') }}" class="text-dark me-4 fs-2"><i class="fas fa-user-plus"></i></a>
+                        <a href="{{ route('register') }}" class="text-dark me-4 fs-2"><i
+                                class="fas fa-user-plus"></i></a>
                     @endguest
 
                     <a href="{{ route('basket') }}" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>
+                    <div class="pt-3 ms-3">
+                        @if(count(session('basket')) == 0)
+                            <p class="text-muted">Sepetiniz Boş</p>
+                        @else
+                            <p class="text-muted">Sepetinizde {{ count(session('basket')) }} <br>ürün bulunuyor</p>
+                        @endif
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -76,9 +87,9 @@
                        href="{{route('category.detail', ['id' => $category->id])}}">{{$category->name}}</a>
                 </li>
             @endforeach
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="{{ route('favorite.book.user') }}">Favorite Books</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="{{ route('favorite.book.user') }}">Favorite Books</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-primary" href="#">Best Sellers</a>
             </li>
