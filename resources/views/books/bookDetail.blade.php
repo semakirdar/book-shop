@@ -54,6 +54,15 @@
                                     </a>
                                 </div>
                             </div>
+
+                            <div class="basket-button mt-5">
+                                <form method="post" action="{{ route('basket.store', ['bookId' => $book->id]) }}">
+                                    @csrf
+                                    <button class="btn btn-success">
+                                        SEPETE EKLE
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-8 border-bottom" style="font-size: 13px;">
                             <div>
@@ -62,7 +71,8 @@
                                 <p><strong>Publisher Name:</strong> {{$book->publisher->name}}</p>
                                 <p><strong>Publisher Description:</strong> {{$book->publisher->description}}</p>
                                 <p><strong>Publisher Description:</strong> {{$book->publisher->description}}</p>
-                                <p>This Book is on the favorite list of<strong> {{ $favoriteCount }}</strong> more people.</p>
+                                <p>This Book is on the favorite list of<strong> {{ $favoriteCount }}</strong> more
+                                    people.</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-4 mt-3" style="font-size: 13px;">

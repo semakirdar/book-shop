@@ -12,6 +12,7 @@ use App\Models\Favorite;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
+use Illuminate\Support\Facades\Session;
 
 
 class BookController extends Controller
@@ -92,6 +93,7 @@ class BookController extends Controller
             'favoriteCount' => $favoriteCount
         ]);
     }
+
 
 
 

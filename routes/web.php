@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -35,6 +36,11 @@ Route::post('/book/store', [BookController::class, 'store'])->name('book.store')
 Route::get('/new/releases', [BookController::class, 'newReleases'])->name('new.release');
 Route::get('/books/{categoryId}', [BookController::class, 'index'])->name('books');
 Route::get('/book/detail/{bookId}', [BookController::class, 'detail'])->name('book.detail');
+
+Route::post('/basket/{bookId}', [BasketController::class, 'store'])->name('basket.store');
+Route::get('/basket', [BasketController::class, 'index'])->name('basket');
+Route::post('/basket/delete/{id}', [BasketController::class, 'delete'])->name('basket.delete');
+
 
 
 Route::get('/comments', [CommentController::class, 'index'])->name('comments');

@@ -63,7 +63,7 @@
                         <a href="{{ route('register') }}" class="text-dark me-4 fs-2"><i class="fas fa-user-plus"></i></a>
                     @endguest
 
-                    <a href="#" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>
+                    <a href="{{ route('basket') }}" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>
                 </div>
             </div>
         </div>
