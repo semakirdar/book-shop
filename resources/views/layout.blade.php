@@ -67,14 +67,12 @@
 
                     <a href="{{ route('basket') }}" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>
                     <div class="pt-3 ms-3">
-                        @if(count(session('basket')) == 0)
+                        @if(is_null(session('basket')) || count(session('basket')) == 0)
                             <p class="text-muted">Sepetiniz Boş</p>
                         @else
                             <p class="text-muted">Sepetinizde {{ count(session('basket')) }} <br>ürün bulunuyor</p>
                         @endif
                     </div>
-
-
                 </div>
             </div>
         </div>

@@ -9,13 +9,15 @@
                     <div class="fav-icon">
                         <form method="post" action="{{route('book.favorite', ['id' => $book->id ])}}">
                             @csrf
-                            <button class="btn btn-none">
-                                @if($book->is_favorited)
-                                    <i class="fas fa-heart text-danger"></i>
-                                @else
-                                    <i class="far fa-heart text-danger"></i>
-                                @endif
-                            </button>
+                            @auth()
+                                <button class="btn btn-none">
+                                    @if($book->is_favorited)
+                                        <i class="fas fa-heart text-danger"></i>
+                                    @else
+                                        <i class="far fa-heart text-danger"></i>
+                                    @endif
+                                </button>
+                            @endauth
                         </form>
                     </div>
                     <div class="row">
@@ -50,11 +52,10 @@
                                     <a href="{{ route('books', ['categoryId' => $book->category->id]) }}"
                                        class="text-decoration-none">
                                         <i class="fas fa-sort text-muted me-2"></i>
-                                        Kategorideki Kiğer Kitaplar
+                                        Kategorideki Diğer Kitaplar
                                     </a>
                                 </div>
                             </div>
-
                             <div class="basket-button mt-5">
                                 <form method="post" action="{{ route('basket.store', ['bookId' => $book->id]) }}">
                                     @csrf

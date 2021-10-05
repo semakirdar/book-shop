@@ -13,9 +13,15 @@ class BasketController extends Controller
         if (is_null($basket))
             $basket = [];
 
-        array_push($basket, $bookId);
-        session(['basket' => $basket]);
+        $index = array_search($bookId, $basket);
+        if ($index > -1) {
+            return redirect()->back()->withErrors('This Book already on your basket..');
 
+        } else {
+            array_push($basket, $bookId);
+            session(['basket' => $basket]);
+        }
+        
         return redirect()->back();
     }
 
@@ -37,11 +43,10 @@ class BasketController extends Controller
     {
         $basket = session()->get('basket');
         $index = array_search($id, $basket);
-        if($index > -1){
+        if ($index > -1) {
             unset($basket[$index]);
             session(['basket' => $basket]);
         }
-
         return redirect()->back();
     }
 

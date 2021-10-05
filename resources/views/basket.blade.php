@@ -4,7 +4,6 @@
     @if(count($books)>0)
         @foreach($books as $book)
             <div class="row justify-content-center align-items-center mt-4 border-bottom" style="text-align: center">
-
                 <div class="col-sm-12 col-md-12 col-lg-2 mb-4">
                     @if(!empty($book->getFirstMediaUrl()))
                         <img style="width: 100px; height: 100px;" class="img-fluid" src="{{$book->getFirstMediaUrl()}}">
