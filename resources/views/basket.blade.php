@@ -28,8 +28,19 @@
                     </form>
                 </div>
             </div>
+
         @endforeach
+        <div class="order-btn float-end my-3 mx-5">
+            <form method="post" action="{{ route('order.store') }}">
+                @csrf
+                <button class="btn btn-success">
+                    Create Order
+                </button>
+            </form>
+        </div>
     @else
         <h2 class="text-danger text-center mt-5">Not Found</h2>
     @endif
+
+
 @endsection

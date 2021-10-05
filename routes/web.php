@@ -8,6 +8,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutContorller;
+use App\Http\Controllers\OrderContorller;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,6 @@ Route::get('/basket', [BasketController::class, 'index'])->name('basket');
 Route::post('/basket/delete/{id}', [BasketController::class, 'delete'])->name('basket.delete');
 
 
-
 Route::get('/comments', [CommentController::class, 'index'])->name('comments');
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
@@ -55,3 +55,8 @@ Route::get('/category/detail/{id}', [CategoryController::class, 'detail'])->name
 Route::post('/book/favorite/{id}', [FavoriteController::class, 'favorite'])->name('book.favorite');
 Route::get('/favorite/book/user', [FavoriteController::class, 'favoriteBook'])->name('favorite.book.user');
 Route::post('/favorite/book/delete/{bookId}', [FavoriteController::class, 'deleteFavorite'])->name('favorite.book.delete');
+
+
+Route::post('/order', [OrderContorller::class, 'store'])->name('order.store');
+
+
