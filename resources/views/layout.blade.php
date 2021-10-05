@@ -53,7 +53,8 @@
                             </button>
                             <span class="me-4">
                                 <img style="width: 70px; height: 70px;" class="rounded-circle"
-                                     src="{{auth()->user()->getFirstMediaUrl()}}">
+
+                                     src="{{!empty(auth()->user()->getFirstMediaUrl()) ? auth()->user()->getFirstMediaUrl() : 'images/default-img.png'}}">
 
                                 {{ auth()->user()->name }}
                            </span>

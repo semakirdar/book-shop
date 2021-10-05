@@ -21,7 +21,7 @@ class BasketController extends Controller
             array_push($basket, $bookId);
             session(['basket' => $basket]);
         }
-        
+
         return redirect()->back();
     }
 
