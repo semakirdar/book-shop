@@ -1,6 +1,5 @@
 @extends('layout')
 @section('content')
-
     <div class="container">
         <a href="{{route('book.create')}}" class="btn btn-primary mt-3">Create Book</a>
         <div class="row mt-5">
@@ -36,6 +35,6 @@
                 </div>
             @endforeach
         </div>
+        {{ $books->links() }}
     </div>
-
 @endsection

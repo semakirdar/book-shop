@@ -19,7 +19,9 @@
             Yardım / SSS
         </div>
         <div class="me-5">
+        <a class="text-decoration-none text-dark" href="{{ route('contact.create') }}">
             Contact
+        </a>
         </div>
         <div class="me-5">
             +90 (850) 266 4343

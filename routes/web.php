@@ -5,6 +5,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -67,3 +68,6 @@ Route::get('/best/seller', [OrderBookController::class, 'bestSeller'])->name('be
 Route::get('/authors', [AuthorController::class, 'index'])->name('authors');
 Route::get('/author/create', [AuthorController::class, 'create'])->name('author.create');
 Route::post('/author/store', [AuthorController::class, 'store'])->name('author.store');
+
+Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');

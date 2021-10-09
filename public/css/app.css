@@ -17720,3 +17720,11 @@ nav {
 .favorite-card-book .delete-favorite i {
   color: #e54747;
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+nav .pagination {
+  margin-top: 20px;
+}

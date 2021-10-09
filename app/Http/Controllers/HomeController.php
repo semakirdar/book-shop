@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $books = Book::query()->with('category')->get();
+        $books = Book::query()->with('category')->paginate(15);
         return view('home', [
             'books' => $books
         ]);
