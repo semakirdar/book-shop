@@ -41,7 +41,6 @@
                         <input style="margin-right: 300px" class="form-control" type="search" placeholder="Search"
                                aria-label="Search">
                     </li>
-
                 </ul>
                 <div class="d-flex justify-content-center align-items-center">
                     @auth()
@@ -54,7 +53,7 @@
                             <span class="me-4">
                                 <img style="width: 70px; height: 70px;" class="rounded-circle"
 
-                                     src="{{!empty(auth()->user()->getFirstMediaUrl()) ? auth()->user()->getFirstMediaUrl() : 'images/default-img.png'}}">
+                                     src="{{!empty(auth()->user()->getFirstMediaUrl()) ? auth()->user()->getFirstMediaUrl() : asset('images/default-img.png')}}">
 
                                 {{ auth()->user()->name }}
                            </span>
@@ -67,6 +66,9 @@
                     @endguest
 
                     <a href="{{ route('basket') }}" class="text-dark  fs-2"><i class="fas fa-shopping-bag"></i></a>
+                    <a class="text-decoration-none" href="{{ route('order.book') }}">
+                        Orders
+                    </a>
                     <div class="pt-3 ms-3">
                         @if(is_null(session('basket')) || count(session('basket')) == 0)
                             <p class="text-muted">Sepetiniz Boş</p>
@@ -90,7 +92,7 @@
                 <a class="nav-link text-primary" href="{{ route('favorite.book.user') }}">Favorite Books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Best Sellers</a>
+                <a class="nav-link text-primary" href="{{ route('best.seller') }}">Best Sellers</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-primary" href="{{route('new.release')}}">New Releases</a>

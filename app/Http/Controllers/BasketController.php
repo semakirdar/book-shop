@@ -30,6 +30,9 @@ class BasketController extends Controller
         $books = [];
         $basket = session()->get('basket');
 
+        if (is_null($basket))
+            $basket = [];
+
         foreach ($basket as $item) {
             $book = Book::query()->where('id', $item)->first();
             array_push($books, $book);

@@ -13,4 +13,8 @@ class Order extends Model
         'id',
         'user_id'
     ];
+
+    public function items(){
+        return $this->hasMany(OrderBook::class);
+    }
 }

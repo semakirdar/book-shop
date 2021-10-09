@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class OrderContorller extends Controller
 {
+    public function index()
+    {
+        $orders = Order::query()->with('items')->where('user_id', auth()->user()->id)->get();
+
+
+        return view('orderBook', [
+            'orders' => $orders,
+        ]);
+    }
+
     public function store()
     {
         $order = Order::query()->create([

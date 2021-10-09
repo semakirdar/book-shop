@@ -8,6 +8,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutContorller;
+use App\Http\Controllers\OrderBookController;
 use App\Http\Controllers\OrderContorller;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -58,5 +59,7 @@ Route::post('/favorite/book/delete/{bookId}', [FavoriteController::class, 'delet
 
 
 Route::post('/order', [OrderContorller::class, 'store'])->name('order.store');
+Route::get('/orderBook', [OrderContorller::class, 'index'])->name('order.book');
 
+Route::get('/best/seller', [OrderBookController::class, 'bestSeller'])->name('best.seller');
 

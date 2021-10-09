@@ -14,4 +14,11 @@ class OrderBook extends Model
         'book_id',
         'order_id'
     ];
+    protected $with = [
+        'book'
+    ];
+
+    public function book(){
+        return $this->belongsTo(Book::class);
+    }
 }
