@@ -6,8 +6,12 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="card mt-5">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>Authors</h5>
+
+                        <a class="btn btn-success" href="{{ route('author.create') }}">
+                            Author Add
+                        </a>
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -26,10 +30,7 @@
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-
 @endsection

@@ -65,4 +65,5 @@ Route::get('/orderBook', [OrderController::class, 'index'])->name('order.book');
 Route::get('/best/seller', [OrderBookController::class, 'bestSeller'])->name('best.seller');
 
 Route::get('/authors', [AuthorController::class, 'index'])->name('authors');
-
+Route::get('/author/create', [AuthorController::class, 'create'])->name('author.create');
+Route::post('/author/store', [AuthorController::class, 'store'])->name('author.store');
