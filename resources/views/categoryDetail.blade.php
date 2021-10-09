@@ -12,7 +12,7 @@
                             @foreach($categories as $category)
                                 <a href="{{ route('books', ['categoryId' => $category->id]) }}"
                                    class="text-decoration-none text-white">
-                                    <p class="bg-primary text-center  p-1 rounded-1 mt-3">  {{$category->name }} </p>
+                                    <p class="bg-primary text-center  p-1 rounded-1 mt-3">  {{$category->name }} ( {{ $category->books_count }} ) </p>
                                 </a>
                             @endforeach
                         @else

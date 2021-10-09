@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function detail($id)
     {
-        $categories = Category::query()->where('parent_id', $id)->get();
+        $categories = Category::query()->withCount('books')->where('parent_id', $id)->get();
         $parentCategory = Category::query()->where('id', $id)->first();
         return view('categoryDetail', [
             'categories' => $categories,
