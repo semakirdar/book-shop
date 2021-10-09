@@ -34,19 +34,23 @@ class FavoriteController extends Controller
 
     public function favoriteBook()
     {
-        $totalFavorite = Favorite::query()
-            ->where('user_id', auth()->user()->id)
-            ->count();
-        $favorites = Favorite::query()
-            ->with('book')
-            ->where('user_id', auth()->user()->id)
-            ->get();
+        if (!empty(auth()->user()->id)) {
+            $totalFavorite = Favorite::query()
+                ->where('user_id', auth()->user()->id)
+                ->count();
+            $favorites = Favorite::query()
+                ->with('book')
+                ->where('user_id', auth()->user()->id)
+                ->get();
 
 
-        return view('favoriteBook', [
-            'favorites' => $favorites,
-            'totalFavorite' => $totalFavorite
-        ]);
+            return view('favoriteBook', [
+                'favorites' => $favorites,
+                'totalFavorite' => $totalFavorite
+            ]);
+        } else {
+            return view('login');
+        }
     }
 
     public function deleteFavorite($bookId)

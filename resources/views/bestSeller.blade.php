@@ -25,7 +25,7 @@
                                         <td>
 
                                                 {{ $bestSeller->count }}
-                                         
+
                                         </td>
                                     </tr>
                             @endforeach
