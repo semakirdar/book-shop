@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="container">
-        <a href="{{route('book.create')}}" class="btn btn-primary mt-3">Create Book</a>
+        <a href="{{route('book.create')}}" class="btn btn-primary mt-5">Create Book</a>
         <div class="row mt-5">
             @foreach($books as $book)
 
