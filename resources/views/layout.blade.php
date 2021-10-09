@@ -41,6 +41,11 @@
                         <input style="margin-right: 300px" class="form-control" type="search" placeholder="Search"
                                aria-label="Search">
                     </li>
+                    <li class="nav-item me-5">
+                        <a href="{{ route('authors') }}" class="text-decoration-none text-dark">
+                            Authors
+                        </a>
+                    </li>
                 </ul>
                 <div class="d-flex justify-content-center align-items-center">
                     @auth()

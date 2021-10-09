@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\OrderBook;
 use Illuminate\Http\Request;
 
-class OrderContorller extends Controller
+class OrderController extends Controller
 {
     public function index()
     {
@@ -20,7 +20,6 @@ class OrderContorller extends Controller
             return view('login');
         }
     }
-
     public function store()
     {
         $order = Order::query()->create([
