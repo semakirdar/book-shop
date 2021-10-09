@@ -11,7 +11,7 @@ class AuthorController extends Controller
 
     public function index()
     {
-        $authors = Author::query()->get();
+        $authors = Author::query()->orderBy('id', 'DESC')->get();
         return view('Authors.author', [
             'authors' => $authors
         ]);

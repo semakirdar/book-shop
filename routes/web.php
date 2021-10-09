@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutContorller;
 use App\Http\Controllers\OrderBookController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -71,3 +72,7 @@ Route::post('/author/store', [AuthorController::class, 'store'])->name('author.s
 
 Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/publishers', [PublisherController::class, 'index'])->name('publishers');
+Route::get('/publisher/create', [PublisherController::class, 'create'])->name('publisher.create');
+Route::post('/publisher/store', [PublisherController::class, 'store'])->name('publisher.store');

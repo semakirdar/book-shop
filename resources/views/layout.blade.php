@@ -48,6 +48,11 @@
                             Authors
                         </a>
                     </li>
+                    <li class="nav-item me-5">
+                        <a href="{{ route('publishers') }}" class="text-decoration-none text-dark">
+                            Publishers
+                        </a>
+                    </li>
                 </ul>
                 <div class="d-flex justify-content-center align-items-center">
                     @auth()
